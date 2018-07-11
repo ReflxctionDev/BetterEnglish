@@ -47,7 +47,7 @@ public class BECommand implements ICommand {
 
     @Override
     public String getUsage(ICommandSender sender) {
-        return "/betterenglish <toggle>";
+        return "/betterenglish <toggle / config>";
     }
 
     @Override
