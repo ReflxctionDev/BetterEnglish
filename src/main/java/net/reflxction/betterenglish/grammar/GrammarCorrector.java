@@ -96,12 +96,9 @@ class GrammarCorrector {
     String appendFullStop(String text) {
         if (text.isEmpty()) return "";
         char last = text.charAt(text.length() - 1);
-        if (Character.isLetter(last)) {
+        if (Character.isLetter(last) && !text.startsWith("/")) {
             return text.concat(".");
         }
         return text;
     }
-
-
-
 }
