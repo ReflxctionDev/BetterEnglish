@@ -23,6 +23,7 @@ import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPostInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
+import net.reflxction.betterenglish.config.Settings;
 import net.reflxction.betterenglish.proxy.IProxy;
 import net.reflxction.betterenglish.utils.Reference;
 
@@ -51,12 +52,16 @@ public class BetterEnglish {
     )
     public static IProxy proxy;
 
+    // Mod settings
+    private static Settings settings;
+
     /*
      * Initialize variables here
      */
     static {
         config = new Configuration(new File("config/better-english.cfg"));
         enabled = config.get("Enabled", "Enabled", true).getBoolean();
+        settings = new Settings();
     }
 
     /**
@@ -114,6 +119,15 @@ public class BetterEnglish {
      */
     public static Configuration getConfig() {
         return config;
+    }
+
+    /**
+     * Instance of the mod settings
+     *
+     * @return ^
+     */
+    public static Settings getSettings() {
+        return settings;
     }
 
 }

@@ -33,7 +33,9 @@ public class Reference {
     public static final String ACCEPTED_VERSIONS = "[1.12.2]";
 
     // Mod prefix (for sending messages)
-    public static final String PREFIX = ChatColor.format("&1[&cBetter English&1] ");
+    public static final String PREFIX = ChatColor.format("&9[&cBetter English&9] ");
+
+    public static final String CREDITS = ChatColor.format("&9Better&cEnglish &fby &aReflxction");
 
     // Client proxy handler
     public static final String CLIENT_PROXY = "net.reflxction.betterenglish.proxy.ClientProxy";

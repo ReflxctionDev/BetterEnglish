@@ -1,8 +1,8 @@
 [
 {
-  "modid": "examplemod",
-  "name": "Example Mod",
-  "description": "Some description",
+  "modid": "betterenglish",
+  "name": "Better English",
+  "description": "A mod which fixes some English mistakes while typing",
   "version": "${version}",
   "mcversion": "${mcversion}",
   "url": "",

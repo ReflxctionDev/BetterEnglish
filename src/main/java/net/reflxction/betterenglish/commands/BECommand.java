@@ -23,11 +23,15 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.reflxction.betterenglish.BetterEnglish;
+import net.reflxction.betterenglish.config.ConfigManager;
+import net.reflxction.betterenglish.gui.BetterEnglishGUI;
 import net.reflxction.betterenglish.utils.ChatColor;
-import net.reflxction.betterenglish.utils.ConfigManager;
+import net.reflxction.betterenglish.utils.Reference;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * Class which handles command input for "/be" and "/betterenglish"
@@ -55,14 +59,26 @@ public class BECommand implements ICommand {
 
 
     @Override
-    public void execute(MinecraftServer server, ICommandSender executor, String[] args) throws CommandException {
+    public void execute(MinecraftServer server, ICommandSender executor, String[] args) {
         switch (args.length) {
             case 0:
                 sendMessage("&cIncorrect command usage. Try " + getUsage(executor));
                 break;
             case 1:
-                if (args[0].equalsIgnoreCase("toggle")) {
-                    config.setEnabled(!BetterEnglish.isEnabled());
+                switch (args[0]) {
+                    case "toggle":
+                        config.setEnabled(!BetterEnglish.isEnabled());
+                        sendMessage(BetterEnglish.isEnabled() ? "&aBetterEnglish has been enabled" : "&cBetterEnglish has been disabled");
+                        break;
+                    case "config":
+                        // Delay by a tick
+                        new Timer().schedule(new TimerTask() {
+                            @Override
+                            public void run() {
+                                Minecraft.getMinecraft().displayGuiScreen(new BetterEnglishGUI());
+                            }
+                        }, 50);
+                        break;
                 }
         }
     }
@@ -111,7 +127,7 @@ public class BECommand implements ICommand {
      */
     private void sendMessage(String message) {
         if (Minecraft.getMinecraft().player != null) { // For safety :>
-            Minecraft.getMinecraft().player.sendMessage(new TextComponentString(ChatColor.format(message)));
+            Minecraft.getMinecraft().player.sendMessage(new TextComponentString(ChatColor.format(Reference.PREFIX + message)));
         }
     }
 

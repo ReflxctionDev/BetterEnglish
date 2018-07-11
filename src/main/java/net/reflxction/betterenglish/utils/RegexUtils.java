@@ -15,19 +15,19 @@
  */
 package net.reflxction.betterenglish.utils;
 
-import net.reflxction.betterenglish.BetterEnglish;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-public class ConfigManager {
+/**
+ * Some handy methods to perform regex checks
+ */
+public class RegexUtils {
 
-    /**
-     * Sets if the mod is enabled or not
-     *
-     * @param b Flag if it should be enabled or not
-     */
-    public void setEnabled(boolean b) {
-        BetterEnglish.setEnabled(b);
-        BetterEnglish.getConfig().get("Enabled", "Enabled", true).set(b);
-        BetterEnglish.getConfig().save();
+    public static boolean isWholeWorld(String sub, String source) {
+        String pattern = "\\b" + sub + "\\b";
+        Pattern p = Pattern.compile(pattern);
+        Matcher m = p.matcher(source);
+        return m.find();
     }
 
 }
