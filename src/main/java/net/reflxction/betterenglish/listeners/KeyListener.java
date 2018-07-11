@@ -39,7 +39,7 @@ public class KeyListener {
                         final GuiTextField field = ReflectUtils.getMainTextField();
                         String text = field.getText();
                         GrammarBuilder builder = new GrammarBuilder(text);
-                        text = builder.appendFullStop(BetterEnglish.getSettings().appendFullStops())
+                        text = builder
                                 .capitalize(BetterEnglish.getSettings().capitalization())
                                 .fixContractions(BetterEnglish.getSettings().fixContractions())
                                 .getText();

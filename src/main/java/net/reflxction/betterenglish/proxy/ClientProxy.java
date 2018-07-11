@@ -19,6 +19,7 @@ import net.minecraftforge.client.ClientCommandHandler;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.event.*;
 import net.reflxction.betterenglish.commands.BECommand;
+import net.reflxction.betterenglish.listeners.FullStopListener;
 import net.reflxction.betterenglish.listeners.KeyListener;
 
 public class ClientProxy implements IProxy {
@@ -41,6 +42,7 @@ public class ClientProxy implements IProxy {
     @Override
     public void init(FMLInitializationEvent event) {
         MinecraftForge.EVENT_BUS.register(new KeyListener());
+        MinecraftForge.EVENT_BUS.register(new FullStopListener());
     }
 
 
