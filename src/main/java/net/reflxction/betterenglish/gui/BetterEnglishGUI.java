@@ -52,10 +52,10 @@ public class BetterEnglishGUI extends GuiScreen {
     @Override
     public void initGui() {
         this.buttonList.clear(); // For safety and memory foaming
-        this.buttonList.add(this.buttonEnabled = new GuiButton(1, this.width / 2 - 70, this.height / 2 - 80, 140, 20, "Enabled: " + (BetterEnglish.isEnabled() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON")));
-        this.buttonList.add(this.buttonContractions = new GuiButton(2, this.width / 2 - 70, this.height / 2 - 58, 140, 20, "Fix contractions: " + (BetterEnglish.getSettings().fixContractions() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON")));
-        this.buttonList.add(this.buttonFullStops = new GuiButton(3, this.width / 2 - 70, this.height / 2 - 36, 140, 20, "Append full-stops: " + (BetterEnglish.getSettings().appendFullStops() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON")));
-        this.buttonList.add(this.buttonCapitalization = new GuiButton(4, this.width / 2 - 70, this.height / 2 - 14, 140, 20, "Capitalize text: " + (BetterEnglish.getSettings().capitalization() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON")));
+        this.buttonList.add(this.buttonEnabled = new GuiButton(1, this.width / 2 - 70, this.height / 2 - 80, 140, 20, "Enabled: " + (BetterEnglish.isEnabled() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF")));
+        this.buttonList.add(this.buttonContractions = new GuiButton(2, this.width / 2 - 70, this.height / 2 - 58, 140, 20, "Fix contractions: " + (BetterEnglish.getSettings().fixContractions() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF")));
+        this.buttonList.add(this.buttonFullStops = new GuiButton(3, this.width / 2 - 70, this.height / 2 - 36, 140, 20, "Append full-stops: " + (BetterEnglish.getSettings().appendFullStops() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF")));
+        this.buttonList.add(this.buttonCapitalization = new GuiButton(4, this.width / 2 - 70, this.height / 2 - 14, 140, 20, "Capitalize text: " + (BetterEnglish.getSettings().capitalization() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF")));
         super.initGui();
     }
 
@@ -65,19 +65,19 @@ public class BetterEnglishGUI extends GuiScreen {
         switch (button.id) {
             case 1:
                 manager.setEnabled(!BetterEnglish.isEnabled());
-                buttonEnabled.displayString = "Enabled: " + (BetterEnglish.isEnabled() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON");
+                buttonEnabled.displayString = "Enabled: " + (BetterEnglish.isEnabled() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF");
                 break;
             case 2:
                 manager.setContractions(!BetterEnglish.getSettings().fixContractions());
-                buttonContractions.displayString = "Fix contractions: " + (BetterEnglish.getSettings().fixContractions() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON");
+                buttonContractions.displayString = "Fix contractions: " + (BetterEnglish.getSettings().fixContractions() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF");
                 break;
             case 3:
                 manager.setFullStops(!BetterEnglish.getSettings().appendFullStops());
-                buttonFullStops.displayString = "Append full-stops: " + (BetterEnglish.getSettings().appendFullStops() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON");
+                buttonFullStops.displayString = "Append full-stops: " + (BetterEnglish.getSettings().appendFullStops() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF");
                 break;
             case 4:
                 manager.setCapitalization(!BetterEnglish.getSettings().capitalization());
-                buttonCapitalization.displayString = "Capitalize text: " + (BetterEnglish.getSettings().capitalization() ? ChatColor.RED + "OFF" : ChatColor.GREEN + "ON");
+                buttonCapitalization.displayString = "Capitalize text: " + (BetterEnglish.getSettings().capitalization() ? ChatColor.GREEN + "ON" : ChatColor.RED + "OFF");
                 break;
         }
         super.actionPerformed(button);
